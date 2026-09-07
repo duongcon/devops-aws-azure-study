@@ -7,6 +7,8 @@ docker images
 docker ps
 # Run 1 container from image
 docker run -d -p <host port>:<container port> <image>:<tag>
+# Example: port 8080 is output, port 80 is input of container
+docker run -d -p 8080:80 nginx:latest
 # List all container - All status
 docker ps -a
 # Start/Stop/Restart a container
