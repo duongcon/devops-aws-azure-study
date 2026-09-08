@@ -1,0 +1,17 @@
+Introduction Dockerfile
+1. FROM: dùng để chỉ định base image mà new Docker image sẽ dựa trên
+	Example: FROM ubuntu:latest, FROM httpd vv.
+2. COPY hoặc ADD: sao chép các tệp và thư mục từ máy chủ nơi Dockerfile được chạy vào bên trong Docker image
+	- ADD: hỗ trợ giải nén trong quá trình copy, copy từ URL trên internet
+	- COPY: không hỗ trợ giải nén hoặc hỗ trợ URL trên internet
+	- Example: COPY app.py /app, COPY . /usr/local/apache2/htdocs/
+3. RUN: Thực thi các lệnh bên trong quá trình build image (cài đặt phần mềm, update package hoặc thực hiện các tác vụ khác)
+	Example: RUN apt-get update && apt-get install -y python
+4. ENV: định nghĩa các biến môi trường cho Docker image
+	Example: ENV LOGLEVEL=DEBUG
+5. EXPOSE: xác định các port mà ứng dụng trong Docker sẽ lắng nghe
+	Example: EXPOSE 80
+6. CMD or ENTRYPOINT: lệnh mà Docker sẽ chạy khi khởi động một container từ image, default là /bin/sh -c
+	- ENTRYPOINT: định nghĩa process sẽ được thực thi bên trong container, định nghĩa path tới process sẽ được thực thi,
+	- CMD: định nghĩa default arguments cung cấp cho ENTRYPOINT process, định nghĩa param nếu có
+	- Example: CMD["python", "/app/app.py"]
