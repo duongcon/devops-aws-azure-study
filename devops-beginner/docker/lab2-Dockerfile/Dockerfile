@@ -8,4 +8,4 @@ ENV LOGFILE=/var/log/httpd/access.log
 
 EXPOSE 80
 
-CMD ["httpd-foregroud"]
+CMD ["httpd-foreground"]
